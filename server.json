@@ -1,0 +1,22 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Iphone 13 Pro Max",
+            "price": 10000.0,
+            "imageUrl": "https://assets.swappie.com/cdn-cgi/image/width=600,height=600,fit=contain,format=auto/OutOfStock-iPhone13ProMax.jpg?v=5"
+        },
+        {
+            "id": 2,
+            "name": "Oculus Rift",
+            "price": 8810.68,
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Oculus-Rift-CV1-Headset-Front_with_transparent_background.png/300px-Oculus-Rift-CV1-Headset-Front_with_transparent_background.png"
+        },
+        {
+            "id": 3,
+            "name": "Tênis da moda",
+            "price": 5000.22,
+            "imageUrl": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/watch-series7-shop-202203_GEO_BR_FMT_WHH?wid=856&hei=652&fmt=png-alpha&.v=1645654043448"
+        }
+    ]
+}
