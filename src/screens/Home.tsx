@@ -1,12 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList, Pressable, View } from 'react-native';
 import styled from 'styled-components/native';
 import IProduct from '../model/product';
 import productService from '../service/productService';
-import ProductCard from '../components/ProductCard';
+import ProductCard from '../components/ProductCard/ProductCard';
 import { Entypo } from '@expo/vector-icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../redux/configueStore';
+import { addCart } from '../redux/cart';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { TypeRoute } from '../routes/Routes';
+import { useNavigation } from '@react-navigation/native';
+
+type TypeNavigation = NativeStackNavigationProp<TypeRoute, 'Cart'>;
 
 const Home = () => {
+    const navigation = useNavigation<TypeNavigation>();
+    const dispatch = useDispatch();
+    const { cart } = useSelector((state: RootState) => state);
+
     const [products, setProducts] = useState<IProduct[]>([]);
 
     useEffect(() => {
@@ -14,18 +26,21 @@ const Home = () => {
     }, []);
 
     return (
-        <View style={{ width: '100%', marginBottom: 200 }}>
+        <View style={{ width: '100%' }}>
             <StyledCartContainer>
-                <StyledCartInnerContainer>
-                    <Entypo name="shopping-cart" size={24} color="black" />
-                    <StyledText>0</StyledText>
-                </StyledCartInnerContainer>
+                <Pressable onPress={() => navigation.navigate('Cart')}>
+                    <StyledCartInnerContainer>
+                        <Entypo name="shopping-cart" size={24} color="black" />
+                        <StyledText>{cart.productList.length}</StyledText>
+                    </StyledCartInnerContainer>
+                </Pressable>
             </StyledCartContainer>
 
             <FlatList
+                style={{ marginBottom: 100 }}
                 data={products}
                 keyExtractor={item => `category-${item.id}`}
-                renderItem={({ item }) => <ProductCard product={item} />}
+                renderItem={({ item }) => <ProductCard product={item} addCart={() => dispatch(addCart(item))} />}
             />
         </View>
     );
