@@ -5,6 +5,8 @@ interface IProduct {
     brand: string;
     inStock: true;
     imageUrl: string;
+    isHighlight: boolean,
+    offerPercentage: number;
 }
 
 export default IProduct;

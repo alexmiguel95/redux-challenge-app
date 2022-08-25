@@ -7,19 +7,10 @@ import theme from './src/theme/theme';
 
 export default function App() {
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView>
             <ThemeProvider theme={theme}>
                 <Home />
             </ThemeProvider>
         </SafeAreaView>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});

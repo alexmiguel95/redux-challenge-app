@@ -2,9 +2,10 @@ import axios, { AxiosRequestConfig } from 'axios';
 import { MY_IP } from 'react-native-dotenv';
 
 const api = () => {
-    console.log('MY_IP', MY_IP);
+    const path = MY_IP;
+    
     const config: AxiosRequestConfig = {
-        baseURL: MY_IP,
+        baseURL: path,
         timeout: 60 * 1000,
     };
 
