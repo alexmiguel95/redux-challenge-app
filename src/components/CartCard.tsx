@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 import IProduct from '../model/product';
 import { Text, Pressable } from 'react-native';
+import { maskAmount } from '../model/utils/stringUtils';
 
 interface IProps {
     product: IProduct;
@@ -19,7 +20,7 @@ const CartCard = ({ product, removeProduct }: IProps) => {
             </StyledInnerContainer>
 
             <StyledFooter>
-                <Text>{product.price}</Text>
+                <Text style={{ color: 'white' }}>{`R$ ${maskAmount(product.price)}`}</Text>
                 <Pressable onPress={() => removeProduct()}>
                     <StyledRemoveButton>remover</StyledRemoveButton>
                 </Pressable>
@@ -52,13 +53,13 @@ const StyledTextContainer = styled.View`
 
 const StyledText = styled.Text`
     color: ${({ theme }) => theme.colors.text_color};
-    font-size: 12px;
+    font-size: 13px;
     font-weight: bold;
 `;
 
 const StyledTextHighLight = styled.Text`
     color: ${({ theme }) => theme.colors.emphasis};
-    font-size: 11px;
+    font-size: 12px;
 `;
 
 const StyledFooter = styled.View`
@@ -79,6 +80,7 @@ const StyledRemoveButton = styled.Text`
     text-align: center;
     border-radius: 5px;
     padding-top: 2px;
+    overflow: hidden;
 `;
 
 export default CartCard;
