@@ -6,9 +6,10 @@ import { StyledContainer, StyledDescriptionContainer, StyledEmphasis, StyledHead
 
 interface IProps {
     product: IProduct;
+    addCart: () => void;
 }
 
-const ProductCard = ({ product }: IProps) => {
+const ProductCard = ({ product, addCart }: IProps) => {
     return (
         <StyledContainer>
             <StyledHeader>
@@ -28,7 +29,7 @@ const ProductCard = ({ product }: IProps) => {
                     <StyledPrice>{`${maskAmount(product.price)} à vista`}</StyledPrice>
                 </StyledDescriptionContainer>
 
-                <Button title="ADICIONAR AO CARRINHO" />
+                <Button title="ADICIONAR AO CARRINHO" onPress={() => addCart()}/>
             </StyledInnerContainer>
         </StyledContainer>
     );

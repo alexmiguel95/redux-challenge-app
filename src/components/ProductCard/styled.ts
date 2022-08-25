@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const StyledContainer = styled.View`
     margin: 20px 25px;
-    border: 1px solid #eee;
+    border: 2px solid #eee;
 `;
 
 export const StyledHeader = styled.View`
@@ -22,7 +22,7 @@ export const StyledText = styled.Text`
 
     color: ${({ theme }) => theme.colors.emphasis_secondary};
     font-size: 16px;
-    border-right-width: 1px;
+    border-right-width: 2px;
     border-color: #eee;
     text-align: center;
     font-weight: bold;
