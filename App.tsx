@@ -1,15 +1,18 @@
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import './ReactotronConfig';
-import Home from './src/screens/Home';
+import Routes from './src/routes/Routes';
 import theme from './src/theme/theme';
 
 export default function App() {
     return (
         <SafeAreaView>
             <ThemeProvider theme={theme}>
-                <Home />
+                <NavigationContainer>
+                    <Routes />
+                </NavigationContainer>
             </ThemeProvider>
         </SafeAreaView>
     );

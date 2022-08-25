@@ -3,7 +3,7 @@ import { FlatList, View } from 'react-native';
 import styled from 'styled-components/native';
 import IProduct from '../model/product';
 import productService from '../service/productService';
-import ProductCard from '../components/ProductCard';
+import ProductCard from '../components/ProductCard/ProductCard';
 import { Entypo } from '@expo/vector-icons';
 
 const Home = () => {
