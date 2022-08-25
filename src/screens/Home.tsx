@@ -61,8 +61,10 @@ const StyledText = styled.Text`
 
     background-color: ${({ theme }) => theme.colors.emphasis};
     margin-top: -10px;
+    padding-top: 1px;
 
-    border-radius: 25px;
+    border-radius: 10px;
+    overflow: hidden;
     text-align: center;
 `;
 
