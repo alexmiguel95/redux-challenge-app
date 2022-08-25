@@ -9,6 +9,7 @@ import CartCard from '../components/CartCard';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { removeProductCart } from '../redux/cart';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Cart = () => {
     const { goBack } = useNavigation();
@@ -16,26 +17,29 @@ const Cart = () => {
     const { cart } = useSelector((state: RootState) => state);
 
     return (
-        <StyledContainer>
-            <StyledTitle>CARRINHO</StyledTitle>
-            <StyledCartIconContainer>
-                <StyledGoBack onPress={() => goBack()}>
-                    <Ionicons name="return-up-back-sharp" size={24} color="white" />
-                </StyledGoBack>
+        <SafeAreaView>
+            <StyledContainer>
+                <StyledTitle>CARRINHO</StyledTitle>
+                <StyledCartIconContainer>
+                    <StyledGoBack onPress={() => goBack()}>
+                        <Ionicons name="return-up-back-sharp" size={24} color="white" />
+                    </StyledGoBack>
 
-                <Entypo name="shopping-cart" size={24} color="black" />
-            </StyledCartIconContainer>
+                    <Entypo name="shopping-cart" size={24} color="white" />
+                </StyledCartIconContainer>
 
-            <ScrollView>
-                {cart.productList.map((product, index) => (
-                    <CartCard product={product} key={`product-${index}`} removeProduct={() => dispatch(removeProductCart(index))} />
-                ))}
-            </ScrollView>
-        </StyledContainer>
+                <ScrollView>
+                    {cart.productList.map((product, index) => (
+                        <CartCard product={product} key={`product-${index}`} removeProduct={() => dispatch(removeProductCart(index))} />
+                    ))}
+                </ScrollView>
+            </StyledContainer>
+        </SafeAreaView>
     );
 };
 
 const StyledContainer = styled.View`
+    height: 100%;
     background-color: #222222;
     margin-top: ${Platform.OS === 'android' ? '25px' : '0'};
 `;

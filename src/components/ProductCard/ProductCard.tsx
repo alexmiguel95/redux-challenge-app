@@ -22,7 +22,7 @@ const ProductCard = ({ product, addCart }: IProps) => {
             <StyledInnerContainer>
                 {product.isHighlight && <StyledEmphasis>Mais vendido</StyledEmphasis>}
                 <StyledDescriptionContainer>
-                    <Text style={{ marginBottom: 25, fontWeight: 'bold' }}>{product.name}</Text>
+                    <Text style={{ marginBottom: 25, color: 'white', fontWeight: 'bold' }}>{product.name}</Text>
                     <Text style={{ color: '#BBBBBB', textDecorationLine: 'line-through', textDecorationStyle: 'solid' }}>{`R$ ${
                         maskAmount(product.price + ((product.price * 100) % product.offerPercentage))
                     }`}</Text>
